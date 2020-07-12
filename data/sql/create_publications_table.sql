@@ -20,3 +20,7 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.publications
     OWNER to postgres;
+
+-- Add 'number_of_publications' column:
+ALTER TABLE public.publications
+    ADD COLUMN number_of_publications integer;
