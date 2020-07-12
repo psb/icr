@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { Pool, Client } = require("pg");
+const { Pool } = require("pg");
 
 const data = JSON.parse(fs.readFileSync("data.json", "utf8"));
 
