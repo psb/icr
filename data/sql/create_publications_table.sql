@@ -4,23 +4,12 @@
 
 CREATE TABLE public.publications
 (
-    id integer NOT NULL DEFAULT nextval('publications_id_seq'::regclass),
+    id serial PRIMARY KEY NOT NULL UNIQUE,
     year integer NOT NULL,
-    gene_id character varying(255) COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT unique_publication_id PRIMARY KEY (id),
+    number_of_publications integer NOT NULL,
+    gene_id character varying(255) NOT NULL,
     CONSTRAINT gene_id FOREIGN KEY (gene_id)
         REFERENCES public.genes (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
 )
-WITH (
-    OIDS = FALSE
-)
-TABLESPACE pg_default;
-
-ALTER TABLE public.publications
-    OWNER to postgres;
-
--- Add 'number_of_publications' column:
-ALTER TABLE public.publications
-    ADD COLUMN number_of_publications integer;
