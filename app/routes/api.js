@@ -5,7 +5,7 @@ const db = require("../database");
 const router = new Router();
 
 /* GET all genes. */
-router.get("/", async (req, res) => {
+router.get("/all", async (req, res) => {
   const { rows } = await db.getAllGenes();
   res.send(rows);
 });
