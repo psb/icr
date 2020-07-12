@@ -20,3 +20,7 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.gene_families
     OWNER to postgres;
+
+-- Made family name unique:
+ALTER TABLE public.gene_families
+    ADD CONSTRAINT unique_gene_family_name UNIQUE (family);
