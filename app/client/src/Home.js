@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import FeatureText from "./FeatureText";
 
 function Home() {
   const [genes, setGenes] = useState([]);
@@ -47,19 +48,11 @@ function Home() {
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
                   Is a drug target?
-                  {gene.is_druggable ? (
-                    <strong className="text-success"> Yes</strong>
-                  ) : (
-                    <strong className="text-danger"> No</strong>
-                  )}
+                  <FeatureText hasFeature={gene.is_druggable} />
                 </li>
                 <li className="list-group-item">
                   Is an enzyme?
-                  {gene.is_enzyme ? (
-                    <strong className="text-success"> Yes</strong>
-                  ) : (
-                    <strong className="text-danger"> No</strong>
-                  )}
+                  <FeatureText hasFeature={gene.is_enzyme} />
                 </li>
               </ul>
               <div className="card-body">
