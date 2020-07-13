@@ -1,4 +1,13 @@
 import React, { useState, useEffect } from "react";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 import FeatureText from "./FeatureText";
 
 function Gene(props) {
@@ -17,6 +26,11 @@ function Gene(props) {
         }
       })
       .then((json) => {
+        // Need to convert publications arrays into objects for recharts.
+        const publications = json.publications.map(([year, count]) => {
+          return { year: year, count: count };
+        });
+        json.publications = publications;
         setGene(json);
       })
       .catch((err) => {
@@ -74,12 +88,12 @@ function Gene(props) {
           </div>
         </div>
         {/* End description */}
-        <div className="row my-1">
+        <div className="row my-3 align-items-center">
           <div className="col-3">
             <img src={gene.image} alt={gene.short_name} />
           </div>
           {/* Start characteristics card */}
-          <div className="col-4 py-3">
+          <div className="col-4">
             <div className="card">
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">Family: {gene.family}</li>
@@ -102,7 +116,26 @@ function Gene(props) {
           </div>
           {/* End characteristics card */}
           {/* Start publications chart */}
-
+          <div className="col">
+            <ResponsiveContainer height={250} width="100%">
+              <BarChart data={gene.publications}>
+                <XAxis dataKey="year" />
+                <YAxis />
+                <Tooltip />
+                <Bar
+                  dataKey="count"
+                  fill="#a71d31"
+                  barSize={10}
+                  name="publications"
+                />
+                <Legend
+                  verticalAlign="top"
+                  height={36}
+                  name="no. of publications / year"
+                />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
           {/* End publications chart */}
         </div>
       </>
