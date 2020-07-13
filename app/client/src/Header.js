@@ -3,7 +3,7 @@ import logo from "./logo.png";
 
 function Header() {
   return (
-    <div className="row pt-4 align-items-center">
+    <div className="row my-4 align-items-center">
       <div className="col-auto">
         <img src={logo} alt="ICR logo" width="300" />
       </div>

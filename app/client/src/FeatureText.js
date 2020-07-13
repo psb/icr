@@ -2,9 +2,9 @@ import React from "react";
 
 function FeatureText(props) {
   if (props.hasFeature) {
-    return <strong className="text-success"> Yes</strong>;
+    return <span className="text-success"> Yes</span>;
   } else {
-    return <strong className="text-danger"> No</strong>;
+    return <span className="text-danger"> No</span>;
   }
 }
 
