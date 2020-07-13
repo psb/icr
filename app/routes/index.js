@@ -1,11 +1,12 @@
 const express = require("express");
+const path = require("path");
 const Router = require("express-promise-router");
 
 const router = new Router();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "PSB | ICR GenesDB" });
+  res.sendFile(path.join(__dirname + "../public/index.html"));
 });
 
 module.exports = router;
