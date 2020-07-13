@@ -51,11 +51,14 @@ function Gene(props) {
   } else {
     return (
       <>
-        <div className="row my-1">
+        <div className="row my-1 align-items-center">
           <div className="col">
             <h3>
               {gene.full_name} ({gene.id})
             </h3>
+          </div>
+          <div className="col-auto mr-1">
+            <a href="/">view all genes</a>
           </div>
         </div>
         {/* Begin description */}
