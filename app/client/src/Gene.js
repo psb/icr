@@ -55,7 +55,7 @@ function Gene(props) {
         <div className="row my-1 align-items-center">
           <div className="col">
             <h3>
-              {gene.full_name} ({gene.id})
+              {gene.full_name} ({gene.short_name})
             </h3>
           </div>
           <div className="col-auto mr-1">
