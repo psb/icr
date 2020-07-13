@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import FeatureText from "./FeatureText";
 
 function Home() {
@@ -115,9 +116,12 @@ function Home() {
                   </li>
                 </ul>
                 <div className="card-body">
-                  <a href={"/" + gene.id} className="btn btn-primary btn-block">
+                  <Link
+                    to={"/" + gene.id}
+                    className="btn btn-primary btn-block"
+                  >
                     More information
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

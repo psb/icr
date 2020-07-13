@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   BarChart,
   Bar,
@@ -58,7 +59,7 @@ function Gene(props) {
             </h3>
           </div>
           <div className="col-auto mr-1">
-            <a href="/">view all genes</a>
+            <Link to="/">view all genes</Link>
           </div>
         </div>
         {/* Begin description */}

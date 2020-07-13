@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "./logo.png";
 
 function Header() {
@@ -10,9 +11,13 @@ function Header() {
         </a>
       </div>
       <div className="col text-center">
-        <a href="/" className="text-body" style={{ "text-decoration": "none" }}>
+        <Link
+          to="/"
+          className="text-body"
+          style={{ "text-decoration": "none" }}
+        >
           <h1 className="display-4">Cancer Genes DB</h1>
-        </a>
+        </Link>
       </div>
     </div>
   );
