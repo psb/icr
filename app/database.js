@@ -31,7 +31,7 @@ ON genes.id = features.gene_id
 INNER JOIN (
 	SELECT
 		gene_id,
-		ARRAY_AGG (year || ' ' || number_of_publications) publications
+		ARRAY_AGG (ARRAY[year,number_of_publications]) publications
 	FROM
 		publications
 	GROUP BY
