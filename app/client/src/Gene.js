@@ -5,7 +5,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
+  Label,
   ResponsiveContainer,
 } from "recharts";
 import FeatureText from "./FeatureText";
@@ -116,22 +116,34 @@ function Gene(props) {
           </div>
           {/* End characteristics card */}
           {/* Start publications chart */}
-          <div className="col">
-            <ResponsiveContainer height={250} width="100%">
-              <BarChart data={gene.publications}>
-                <XAxis dataKey="year" />
-                <YAxis />
+          <div className="col text-center">
+            <div>No. of publications / year</div>
+            <ResponsiveContainer height={250} width={"100%"}>
+              <BarChart
+                data={gene.publications}
+                margin={{ top: 30, right: 30, left: 30, bottom: 30 }}
+              >
+                <XAxis dataKey="year">
+                  <Label
+                    value={"Year"}
+                    position="bottom"
+                    style={{ textAnchor: "middle" }}
+                  />
+                </XAxis>
+                <YAxis>
+                  <Label
+                    value={"No. of publications"}
+                    position="left"
+                    angle={-90}
+                    style={{ textAnchor: "middle" }}
+                  />
+                </YAxis>
                 <Tooltip />
                 <Bar
                   dataKey="count"
                   fill="#a71d31"
                   barSize={10}
                   name="publications"
-                />
-                <Legend
-                  verticalAlign="top"
-                  height={36}
-                  name="no. of publications / year"
                 />
               </BarChart>
             </ResponsiveContainer>
